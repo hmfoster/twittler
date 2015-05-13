@@ -21,27 +21,22 @@
         $wrapper = $('<div class = "wrapper"></div>');
         $wrapper.appendTo($main);
         
+        // Set up tweet functionality
         var $tweet = $('tweet');
-        var index = streams.home.length - 1;
-        var numTweet = streams.home.length;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class = "tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($wrapper);
-          index -= 1;
-        }
-        var update = setInterval(function(){
-          var index = streams.home.length - 1;
-          while(index >= numTweet){
+        function update(){
+          var index = 0;
+          var numTweet = streams.home.length;
+
+          while(index < numTweet){
             var tweet = streams.home[index];
             var $tweet = $('<div class = "tweet"></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.text(tweet.created_at + '\n@' + tweet.user + ': ' + tweet.message);
             $tweet.prependTo($wrapper);
-            index -= 1;
-        } numTweet = streams.home.length;
-      }
-          , 3000)
+            index += 1;
+          }
+        };
+        update();
+        var newTweets = setInterval(update, 3000)
     });
 
     </script>
