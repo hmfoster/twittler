@@ -29,14 +29,15 @@
 
           while(index < numTweet){
             var tweet = streams.home[index];
-            var $tweet = $('<div class = "tweet"></div>');
-            $tweet.text(tweet.created_at + '\n@' + tweet.user + ': ' + tweet.message);
+            var $tweet = $('<div class ="tweet"><p class = "time"></p><p class = "message"></p></div>');
+            $('.time').text(tweet.created_at);
+            $('.message').text('@'+ tweet.user +': '+tweet.message);
             $tweet.prependTo($wrapper);
             index += 1;
           }
         };
+        var newTweets = setInterval(update, 10000)
         update();
-        var newTweets = setInterval(update, 3000)
     });
 
     </script>
