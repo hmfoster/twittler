@@ -1,0 +1,12 @@
+body{
+	background: #2956B2;
+	background-image: url(images/leaves.jpg);
+	background-size: cover;
+}
+main{
+	width: 600px;
+	margin: 0 auto;
+	background: linear-gradient(0deg, #005CB8, 50%, #001F3D);
+	color: #fff;
+	border: solid 10px #2a1506
+}
