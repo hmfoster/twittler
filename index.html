@@ -9,21 +9,23 @@
   <body>
     <h1>Twittler Ya!</h1>
     <main>
-      <div class = "tweet"></div>
+      <div class = "wrapper">
+        <div class = "tweet"></div>
+      </div>
     </main>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
         //$body.html('');
-          $main = $('main');
+          $wrapper = $('.wrapper');
           var index = streams.home.length - 1;
           var numTweet = streams.home.length;
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class = "tweet"></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
-            $tweet.appendTo($main);
+            $tweet.appendTo($wrapper);
             index -= 1;
           }
           var update = setInterval(function(){
@@ -32,11 +34,11 @@
               var tweet = streams.home[index];
               var $tweet = $('<div class = "tweet"></div>');
               $tweet.text('@' + tweet.user + ': ' + tweet.message);
-              $tweet.prependTo($main);
+              $tweet.prependTo($wrapper);
               index -= 1;
           } numTweet = streams.home.length;
         }
-            , 1000)
+            , 3000)
       });
 
     </script>

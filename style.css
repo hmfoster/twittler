@@ -1,12 +1,37 @@
 body{
-	background: #2956B2;
-	background-image: url(images/leaves.jpg);
-	background-size: cover;
+	background: linear-gradient(0deg, #005CB8, 50%, #001F3D);
+}
+h1{
+	color: #fff;
+	font-family: arial;
+	text-align: center;
 }
 main{
-	width: 600px;
+	width: 70%;
+	max-width: 600px;
+	min-width: 400px;
+	height: 600px;
 	margin: 0 auto;
-	background: linear-gradient(0deg, #005CB8, 50%, #001F3D);
+	background: #2956B2;
+	background-image: url(images/leaves.jpg);
 	color: #fff;
-	border: solid 10px #2a1506
+	border: solid 10px #2a1506;
+	border-radius: 10px;
+	position: relative;
+}
+.wrapper{
+	padding: 15px;
+	width: 90%;
+	height: 540px;
+	margin: 15px auto;
+	background-color: rgba(256, 256, 256, 0.3);
+	overflow: auto;
+	color: #00519f;
+	border-radius: 10px;
+}
+.tweet{
+	padding: 5px;
+	line-height: 1;
+	font-family: arial;
+	font-size: 15px;
 }
