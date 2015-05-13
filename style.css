@@ -24,7 +24,7 @@ main{
 	width: 90%;
 	height: 540px;
 	margin: 15px auto;
-	background-color: rgba(256, 256, 256, 0.3);
+	background-color: rgba(256, 256, 256, 0.6);
 	overflow: auto;
 	color: #00519f;
 	border-radius: 10px;

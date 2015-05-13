@@ -7,39 +7,42 @@
     <title>Twittler</title>
   </head>
   <body>
-    <h1>Twittler Ya!</h1>
-    <main>
-      <div class = "wrapper">
-        <div class = "tweet"></div>
-      </div>
-    </main>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        //$body.html('');
-          $wrapper = $('.wrapper');
+        $body.html('');
+
+        // Set up html structure
+        var $h1 = $('<h1></h1>');
+        $h1.text('Twittler').appendTo($body);
+        var $main = $('<main></main>');
+        $main.appendTo($body);
+        $wrapper = $('<div class = "wrapper"></div>');
+        $wrapper.appendTo($main);
+        
+        var $tweet = $('tweet');
+        var index = streams.home.length - 1;
+        var numTweet = streams.home.length;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div class = "tweet"></div>');
+          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.appendTo($wrapper);
+          index -= 1;
+        }
+        var update = setInterval(function(){
           var index = streams.home.length - 1;
-          var numTweet = streams.home.length;
-          while(index >= 0){
+          while(index >= numTweet){
             var tweet = streams.home[index];
             var $tweet = $('<div class = "tweet"></div>');
             $tweet.text('@' + tweet.user + ': ' + tweet.message);
-            $tweet.appendTo($wrapper);
+            $tweet.prependTo($wrapper);
             index -= 1;
-          }
-          var update = setInterval(function(){
-            var index = streams.home.length - 1;
-            while(index >= numTweet){
-              var tweet = streams.home[index];
-              var $tweet = $('<div class = "tweet"></div>');
-              $tweet.text('@' + tweet.user + ': ' + tweet.message);
-              $tweet.prependTo($wrapper);
-              index -= 1;
-          } numTweet = streams.home.length;
-        }
-            , 3000)
-      });
+        } numTweet = streams.home.length;
+      }
+          , 3000)
+    });
 
     </script>
 
