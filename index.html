@@ -14,12 +14,10 @@
         $body.html('');
 
         // Set up html structure
-        var $h1 = $('<h1></h1>');
-        $h1.text('Twittler').appendTo($body);
-        var $main = $('<main></main>');
-        $main.appendTo($body);
-        $wrapper = $('<div class = "wrapper"></div>');
-        $wrapper.appendTo($main);
+        $body.html('<h1></h1><main><div class = "wrapper"></div></main>')
+        $('h1').text('Twittler');
+        var $main = $('main');
+        $wrapper = $('.wrapper');
         
         // Set up tweet functionality
         var $tweet = $('tweet');
@@ -35,7 +33,7 @@
             index += 1;
           }
         };
-        var newTweets = setInterval(update, 10000)
+        var newTweets = setInterval(update, 6000)
         update();
     });
 

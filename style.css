@@ -1,5 +1,5 @@
 body{
-	background: linear-gradient(0deg, #005CB8, 50%, #001F3D);
+	background: radial-gradient(circle, #005CB8, 70%, #001F3D);
 }
 h1{
 	color: #fff;
@@ -22,9 +22,12 @@ main{
 	position: relative;
 }
 .wrapper{
+	position: absolute;
+	top: 15px;
+	right: 6%;
 	padding: 15px;
-	width: 90%;
-	height: 540px;
+	width: 84%;
+	height: 510px;
 	margin: 15px auto;
 	background-color: rgba(256, 256, 256, 0.6);
 	overflow: auto;
