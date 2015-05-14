@@ -14,13 +14,20 @@
         $body.html('');
 
         // Set up html structure
-        $body.html('<h1></h1><main><div class = "wrapper"></div></main>')
+        $body.html('<h1></h1>'+
+                    '<main>'+
+                      '<div class = "wrapper"></div>'+
+                    '</main>'+
+                    '<aside>'+
+                      '<button>Hide</button>'+
+                      '<div class = "by-user"></div>'+
+                    '</aside>')
         $('h1').text('Twittler');
         var $main = $('main');
-        $wrapper = $('.wrapper');
+        var $wrapper = $('.wrapper');
+        var $aside = $('aside');
         
         // Set up tweet functionality
-        var $tweet = $('tweet');
         function update(){
           var index = 0;
           var numTweet = streams.home.length;
@@ -28,14 +35,38 @@
           while(index < numTweet){
             var tweet = streams.home[index];
             var $tweet = $('<div class ="tweet"></div>');
-            $tweet.html("@<strong>"+tweet.user+'</strong> <small>'+tweet.created_at+"</small></br>"+tweet.message)
+            $tweet.html("<a href = #>@<strong class = 'user'>"+tweet.user+'</strong></a> <small>'+tweet.created_at+"</small></br>"+tweet.message);
             $tweet.prependTo($wrapper);
             index += 1;
           }
         };
         var newTweets = setInterval(update, 6000)
         update();
+      
+        // Filter tweets by person
+        function userTweets(user){
+            var index = 0;
+            var numTweet = streams.users[user].length;
+
+            while(index < numTweet){
+              var tweet = streams.users[user][index];
+              var $tweet = $('<div class ="tweet"></div>');
+              $tweet.html("<a href = #>@<strong class = 'user'>"+tweet.user+'</strong></a> <small>'+tweet.created_at+"</small></br>"+tweet.message);
+              $tweet.prependTo($('.by-user'));
+              index += 1;
+            }
+          };
+          $('.user').on('click',function(){
+            userTweets($(this).text());
+            $aside.show();
+            var newUserTweets = setInterval(userTweets($(this).text()), 6000);
+            
+          });
+          $('button').on('click', function(){
+            $aside.hide();
+        })
     });
+
 
     </script>
 

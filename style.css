@@ -44,3 +44,15 @@ main{
 small{
 	font-size: 12px;
 }
+aside{
+	width: 70%;
+	height: 510px;
+	top:80px;
+	right: 40px;
+	position: absolute;
+	background-color: rgba(256, 256, 256, 0.6);
+	display: none;
+}
+.by-user{
+	overflow: auto;
+}
