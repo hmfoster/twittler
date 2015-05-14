@@ -19,7 +19,7 @@
                       '<div class = "wrapper"></div>'+
                     '</main>'+
                     '<aside>'+
-                      '<button>Hide</button>'+
+                      '<button>Show All</button>'+
                       '<div class = "by-user"></div>'+
                     '</aside>')
         $('h1').text('Twittler');
@@ -40,7 +40,7 @@
             index += 1;
           }
         };
-        var newTweets = setInterval(update, 6000)
+        var newTweets = setInterval(update, 10000)
         update();
       
         // Filter tweets by person
@@ -58,12 +58,13 @@
           };
           $('.user').on('click',function(){
             userTweets($(this).text());
-            $aside.show();
+
+            $aside.show('slow');
             var newUserTweets = setInterval(userTweets($(this).text()), 6000);
             
           });
           $('button').on('click', function(){
-            $aside.hide();
+            $aside.hide('slow');
         })
     });
 

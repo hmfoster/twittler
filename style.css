@@ -8,7 +8,7 @@ h1{
 	padding-bottom: 0;
 	margin-bottom: 20px;
 }
-main{
+main, aside{
 	width: 70%;
 	max-width: 600px;
 	min-width: 400px;
@@ -21,7 +21,7 @@ main{
 	border-radius: 10px;
 	position: relative;
 }
-.wrapper{
+.wrapper, .by-user{
 	position: absolute;
 	top: 15px;
 	right: 6%;
@@ -45,14 +45,18 @@ small{
 	font-size: 12px;
 }
 aside{
-	width: 70%;
-	height: 510px;
-	top:80px;
-	right: 40px;
+	width: 90%;
+	height: 340px;
+	top:140px;
+	right: 10%;
 	position: absolute;
-	background-color: rgba(256, 256, 256, 0.6);
 	display: none;
+	border:none;
 }
 .by-user{
-	overflow: auto;
+	height: 240px;
+}
+button{
+	position: absolute;
+	margin: 0 auto;
 }
