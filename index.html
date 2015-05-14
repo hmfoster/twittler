@@ -29,9 +29,8 @@
 
           while(index < numTweet){
             var tweet = streams.home[index];
-            var $tweet = $('<div class ="tweet"><p class = "time"></p><p class = "message"></p></div>');
-            $('.time').text(tweet.created_at);
-            $('.message').text('@'+ tweet.user +': '+tweet.message);
+            var $tweet = $('<div class ="tweet"></div>');
+            $tweet.html("@<strong>"+tweet.user+'</strong> <small>'+tweet.created_at+"</small></br>"+tweet.message)
             $tweet.prependTo($wrapper);
             index += 1;
           }
