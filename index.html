@@ -39,8 +39,15 @@
             $tweet.prependTo($wrapper);
             index += 1;
           }
+          $('.user').on('click',function(){
+            userTweets($(this).text());
+
+            $aside.show('slow');
+            var newUserTweets = setInterval(userTweets($(this).text()), 6000);
+            
+          });
         };
-        var newTweets = setInterval(update, 10000)
+        var newTweets = setInterval(update, 5000)
         update();
       
         // Filter tweets by person
@@ -56,13 +63,6 @@
               index += 1;
             }
           };
-          $('.user').on('click',function(){
-            userTweets($(this).text());
-
-            $aside.show('slow');
-            var newUserTweets = setInterval(userTweets($(this).text()), 6000);
-            
-          });
           $('button').on('click', function(){
             $aside.hide('slow');
         })
