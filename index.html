@@ -41,10 +41,8 @@
           }
           $('.user').on('click',function(){
             userTweets($(this).text());
-
             $aside.show('slow');
-            var newUserTweets = setInterval(userTweets($(this).text()), 6000);
-            
+            var newUserTweets = setInterval(userTweets($(this).text()), 6000);            
           });
         };
         var newTweets = setInterval(update, 5000)
@@ -59,12 +57,13 @@
               var tweet = streams.users[user][index];
               var $tweet = $('<div class ="tweet"></div>');
               $tweet.html("<a href = #>@<strong class = 'user'>"+tweet.user+'</strong></a> <small>'+tweet.created_at+"</small></br>"+tweet.message);
-              $tweet.prependTo($('.by-user'));
+              $('.by-user').prepend($tweet) //.prependTo($('.by-user'));
               index += 1;
             }
           };
-          $('button').on('click', function(){
-            $aside.hide('slow');
+        $('button').on('click', function(){
+          $('.by-user').html('')
+          $aside.hide('slow');
         })
     });
 
